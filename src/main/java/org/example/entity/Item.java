@@ -6,10 +6,10 @@ public class Item {
     private String id;
     private String username;
     private String description;
-    private int date;
+    private long date;
     private String comments;
 
-    public Item(String username, String description, int date, String comments) {
+    public Item(String username, String description, long date, String comments) {
         this.username = username;
         this.description = description;
         this.date = date;
@@ -40,11 +40,11 @@ public class Item {
         this.description = description;
     }
 
-    public int getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(long date) {
         this.date = date;
     }
 

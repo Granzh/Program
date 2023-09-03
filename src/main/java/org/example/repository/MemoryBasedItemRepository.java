@@ -18,6 +18,7 @@ public class MemoryBasedItemRepository implements itemRepository{
         for (Item item : listOfAplications) {
             if (item.getId().equals(id)) {
                 item = replace;
+                break;
             }
         }
     }
@@ -55,5 +56,12 @@ public class MemoryBasedItemRepository implements itemRepository{
             }
         }
         return null;
+    }
+
+    public int getSize() {
+        return listOfAplications.size();
+    }
+    public Item getItem(int index) {
+        return listOfAplications.get(index);
     }
 }
