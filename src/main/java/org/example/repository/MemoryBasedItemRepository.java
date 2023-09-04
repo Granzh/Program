@@ -15,21 +15,16 @@ public class MemoryBasedItemRepository implements itemRepository{
 
     @Override
     public void replace(String id, Item replace) {
-        for (Item item : listOfAplications) {
-            if (item.getId().equals(id)) {
-                item = replace;
-                break;
+        for (int i = 0; i < listOfAplications.size(); i++) {
+            if (listOfAplications.get(i).getId().equals(id)) {
+                listOfAplications.set(i, replace);
             }
         }
     }
 
     @Override
     public void delete(String id) {
-        for (int i = 0; i < listOfAplications.size(); i++) {
-            if (listOfAplications.get(i).getId().equals(id)) {
-                listOfAplications.remove(i);
-            }
-        }
+        listOfAplications.remove(findByUserId(id));
     }
 
     @Override

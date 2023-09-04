@@ -47,4 +47,7 @@ public class MemoryBasedItemRepositoryByMap implements itemRepository{
     public Item findByUserId(String id) {
         return mapOfRepository.get(id);
     }
+    public int getSize() {
+        return mapOfRepository.size();
+    }
 }
