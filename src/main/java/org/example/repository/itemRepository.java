@@ -9,7 +9,7 @@ public interface itemRepository {
     void replace(String id, Item replace);
     void delete(String id);
     List<Item> getAll();
-    List<Item> findByUdername(String Username);
+    List<Item> findByUsername(String Username);
     Item findByUserId(String id);
 
 }

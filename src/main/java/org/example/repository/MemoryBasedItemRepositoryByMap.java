@@ -10,7 +10,7 @@ public class MemoryBasedItemRepositoryByMap implements itemRepository{
     Map<String, Item> mapOfRepository = new HashMap<>();
     @Override
     public Item add(Item item) {
-        item.setId(String.valueOf(System.currentTimeMillis()));
+        item.setId(String.valueOf(System.currentTimeMillis() + (mapOfRepository.size() + 1)));
         mapOfRepository.put(item.getId(), item);
         return item;
     }
@@ -27,11 +27,12 @@ public class MemoryBasedItemRepositoryByMap implements itemRepository{
 
     @Override
     public List<Item> getAll() {
-        return (List<Item>) mapOfRepository.values();
+        List<Item> listOfItems  = new ArrayList<Item>( mapOfRepository.values() );
+        return listOfItems;
     }
 
     @Override
-    public List<Item> findByUdername(String Username) {
+    public List<Item> findByUsername(String Username) {
         List<Item> listOfItems = new ArrayList<>();
         for(int i = 0; i < mapOfRepository.size(); i++) {
             String key = String.valueOf(mapOfRepository.get(i));

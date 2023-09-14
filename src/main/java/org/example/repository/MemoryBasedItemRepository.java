@@ -33,7 +33,7 @@ public class MemoryBasedItemRepository implements itemRepository{
     }
 
     @Override
-    public List<Item> findByUdername(String Username) {
+    public List<Item> findByUsername(String Username) {
         List<Item> arrayByUserName = new ArrayList<>();
         for (Item item : listOfAplications) {
             if (item.getUsername().equals(Username)) {

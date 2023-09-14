@@ -47,7 +47,7 @@ class itemRepositoryTest {
     @Test
     void findByUdername() {
         String username = "User1";
-        List<Item> items = test.findByUdername(username);
+        List<Item> items = test.findByUsername(username);
         assert items.get(0).getUsername().equals(username);
     }
 
