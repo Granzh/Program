@@ -27,21 +27,17 @@ public class MemoryBasedItemRepositoryByMap implements itemRepository{
 
     @Override
     public List<Item> getAll() {
-        List<Item> listOfItems  = new ArrayList<Item>( mapOfRepository.values() );
-        return listOfItems;
+        return new ArrayList<>(mapOfRepository.values());
     }
 
     @Override
     public List<Item> findByUsername(String Username) {
-        List<Item> listOfItems = new ArrayList<>();
-        for(int i = 0; i < mapOfRepository.size(); i++) {
-            String key = String.valueOf(mapOfRepository.get(i));
-            Item value = mapOfRepository.get(key);
-            if (value.getUsername().equals(Username)) {
-                listOfItems.add(value);
-            }
+        List<Item> listOfItems = new ArrayList<>(mapOfRepository.values());
+        List<Item> result = new ArrayList<>();
+        for (Item item : listOfItems) {
+            if(item.getUsername().equals(Username)) result.add(item);
         }
-        return null;
+        return result;
     }
 
     @Override
